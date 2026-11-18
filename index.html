@@ -14,14 +14,17 @@
 <meta property="og:title" content="Nesaris Network — self-hosted network & homelab tools">
 <meta property="og:description" content="Open-source tools to map, monitor and run your own network: Hub, MapMyLAN, NexArc, ProxLab, Vigie and more. Zero npm dependencies. By CodeX64.">
 <meta property="og:url" content="https://nesaris.github.io/">
-<meta property="og:image" content="https://raw.githubusercontent.com/Nesaris/Hub/main/medias/capture-1.png">
+<meta property="og:image" content="https://nesaris.github.io/assets/og-nesaris.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231B2AFF'/%3E%3Cpath d='M9 23V9l14 14V9' fill='none' stroke='%23fff' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cstyle%3Epath%7Bfill:%2314162B%7D%40media %28prefers-color-scheme:dark%29%7Bpath%7Bfill:%23FFFFFF%7D%7D%3C/style%3E%3Cpath d='M2.89 28.19V5.19H10.71V8.41C12.55 5.65 15.77 3.81 19.45 3.81C25.43 3.81 29.11 7.95 29.11 14.39V28.19H21.29V15.77C21.29 13.01 19.68 11.4 17.15 11.4C13.93 11.4 10.71 13.7 10.71 16.69V28.19ZM12.5 20.59H19.5V27.59H12.5Z'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="/assets/nesaris-icon-500.png">
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link href="https://fonts.bunny.net/css?family=schibsted-grotesk:400,500,700,800|ibm-plex-mono:400,500&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-{"@type":"Organization","@id":"https://nesaris.github.io/#org","name":"Nesaris Network","alternateName":["Nesaris"],"url":"https://nesaris.github.io/","email":"developer@nesaris.cloud","description":"Open-source, self-hosted network and homelab tools with zero npm dependencies.","sameAs":["https://github.com/Nesaris"],"founder":{"@id":"https://codexx64.github.io/#person"}},
+{"@type":"Organization","@id":"https://nesaris.github.io/#org","name":"Nesaris Network","alternateName":["Nesaris"],"url":"https://nesaris.github.io/","logo":"https://nesaris.github.io/assets/nesaris-icon-500.png","email":"developer@nesaris.cloud","description":"Open-source, self-hosted network and homelab tools with zero npm dependencies.","sameAs":["https://github.com/Nesaris"],"founder":{"@id":"https://codexx64.github.io/#person"}},
 {"@type":"Person","@id":"https://codexx64.github.io/#person","name":"CodeX64","alternateName":["CodexX64","Codex64"],"url":"https://codexx64.github.io/","sameAs":["https://github.com/CodexX64","https://github.com/AltKlin","https://altklin.github.io/"]},
 {"@type":"ItemList","name":"Nesaris Network projects","itemListElement":[
 {"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"Nesaris Hub","url":"https://github.com/Nesaris/Hub","applicationCategory":"DeveloperApplication","operatingSystem":"Linux (Docker)","license":"https://opensource.org/licenses/MIT","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"author":{"@id":"https://codexx64.github.io/#person"}}},
@@ -38,7 +41,7 @@
 <style>
 :root{
   --bg:#0e0f11;--bg-2:#15171a;--line:#24272c;--ink:#ecebe6;--ink-2:#a3a6ad;--ink-3:#71757d;
-  --accent:#1B2AFF;--accent-ink:#aab1ff;
+  --accent:#6B3BFF;--accent-ink:#b9a6ff;--packet:#FFD23F;
   --sans:"Schibsted Grotesk",ui-sans-serif,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;
   --s1:4px;--s2:8px;--s3:16px;--s4:24px;--s5:32px;--s6:48px;--s7:64px;--s8:96px;--s9:144px;
   --r:6px;--wrap:1240px;
@@ -58,15 +61,20 @@ a{color:inherit}
 /* top */
 header.top{display:flex;justify-content:space-between;align-items:center;padding:var(--s4) 0;border-bottom:1px solid var(--line)}
 .brand{display:flex;gap:10px;align-items:center;text-decoration:none;font-weight:700}
-.brand svg{width:22px;height:22px}
+.brand .logo-txt{height:26px;width:auto;display:block}
+.brand .net{color:var(--ink-3);padding-top:6px}
 nav ul{display:flex;gap:var(--s4);list-style:none;margin:0;padding:0}
 nav a{text-decoration:none;color:var(--ink-2)}nav a:hover{color:var(--ink)}
 
 /* hero */
 .hero{padding:var(--s8) 0 var(--s6);border-bottom:1px solid var(--line)}
 .hero-meta{display:flex;justify-content:space-between;gap:var(--s4);flex-wrap:wrap;color:var(--ink-3)}
-.word{font-weight:800;font-size:clamp(88px,21vw,300px);line-height:.78;letter-spacing:-.06em;margin:var(--s7) 0 var(--s6);margin-left:-.04em}
-.word span{color:var(--accent)}
+.word{margin:var(--s7) 0 var(--s6);line-height:0}
+.word svg{width:100%;height:auto;display:block;color:var(--ink)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.pkt{transform-box:fill-box;animation:pass 1.6s cubic-bezier(.2,.7,.1,1) .3s both}
+@keyframes pass{0%{transform:translateX(-900%);opacity:0}25%{opacity:1}100%{transform:none}}
+@media (prefers-reduced-motion:reduce){.pkt{animation:none}}
 .hero-row{display:grid;grid-template-columns:1.3fr 1fr;gap:var(--s6);align-items:end}
 .lede{font-size:clamp(22px,2.4vw,30px);line-height:1.25;font-weight:500;max-width:22ch;margin:0;letter-spacing:-.01em}
 .hero-side p{color:var(--ink-2);max-width:46ch;margin:0 0 var(--s4)}
@@ -96,7 +104,7 @@ button.copy:hover{color:var(--ink);border-color:var(--ink-3)}
 .btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:500;padding:10px 16px;border-radius:var(--r);border:1px solid var(--line);color:var(--ink)}
 .btn:hover{border-color:var(--ink-3)}
 .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
-.btn.primary:hover{background:#3341ff}
+.btn.primary:hover{background:#7d52ff}
 .stars{color:var(--ink-3)}
 .shot{margin:0;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:#f4f4f1}
 .shot img{display:block;width:100%;height:auto}
@@ -149,10 +157,7 @@ footer details p{margin:var(--s2) 0}
 <a class="skip" href="#projects">Skip to projects</a>
 <div class="wrap">
 <header class="top">
-  <a class="brand" href="/" aria-label="Nesaris Network home">
-    <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#1B2AFF"/><path d="M9 23V9l14 14V9" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    Nesaris Network
-  </a>
+  <a class="brand" href="/" aria-label="Nesaris Network home"><svg class="logo-txt" viewBox="18 22.26 279.97 61.74" aria-hidden="true"><path fill="currentColor" d="M22 80V30H39V37C43 31 50 27 58 27C71 27 79 36 79 50V80H62V53C62 47 58.5 43.5 53 43.5C46 43.5 39 48.5 39 55V80Z"/><path fill="var(--packet)" d="M47.5 64H54.5A3 3 0 0 1 57.5 67V74A3 3 0 0 1 54.5 77H47.5A3 3 0 0 1 44.5 74V67A3 3 0 0 1 47.5 64Z"/><path fill="currentColor" d="M114.77 51.4C114.77 47.95 116.81 45.91 119.84 45.91C122.86 45.91 124.67 47.9 124.67 51.24V68.34H133.93V49.44C133.93 42.72 129.87 38.29 123.66 38.29C118.85 38.29 115.93 40.94 114.37 45.06L114.21 38.66H105.5V68.34H114.77ZM152.78 68.9C159.98 68.9 164.83 65.63 166.32 60.48L158.06 59.13C157.32 61.12 155.44 62.18 152.94 62.18C149.44 62.18 147.07 60.06 146.92 55.76H166.75V53.42C166.75 43.62 160.77 38.29 152.44 38.29C143.52 38.29 137.81 44.45 137.81 53.61C137.81 63.11 143.46 68.9 152.78 68.9ZM146.97 50.37C147.31 47.1 149.25 45 152.52 45C155.76 45 157.59 47 157.96 50.37ZM183.02 68.9C191.12 68.9 196.93 64.97 196.93 58.86C196.93 54.56 194.09 51.96 188.2 50.85L182.52 49.78C179.97 49.28 179.17 48.35 179.17 47.16C179.17 45.64 180.92 44.66 183.15 44.66C185.65 44.66 187.35 45.83 187.91 47.82L196.08 46.52C195.05 41.42 190.43 38.29 182.99 38.29C175.03 38.29 169.93 41.79 169.93 47.71C169.93 52.25 172.85 55.15 178.72 56.26L183.9 57.27C186.37 57.77 187.53 58.54 187.53 59.92C187.53 61.44 185.97 62.39 183.37 62.39C180.21 62.39 178.53 61.07 177.79 58.49L169.19 59.84C170.22 65.53 175.43 68.9 183.02 68.9ZM208.91 68.87C213.02 68.87 215.89 67.23 217.51 64.17H217.75V68.34H226.45V48.19C226.45 41.82 220.64 38.29 213.26 38.29C205.83 38.29 201.15 41.77 199.99 46.84L208.37 47.93C208.88 46.07 210.6 44.87 213.18 44.87C215.7 44.87 217.21 46.04 217.21 48.08V48.19C217.21 50.02 215.2 50.39 210.18 50.82C204.18 51.32 199.14 53.53 199.14 60.11C199.14 65.98 203.2 68.87 208.91 68.87ZM211.72 62.74C209.49 62.74 207.9 61.68 207.9 59.69C207.9 57.72 209.44 56.55 212.17 56.15C213.9 55.89 216.23 55.49 217.29 54.93V57.770C217.29 60.69 214.83 62.74 211.72 62.74ZM231.5 68.34H240.76V52.15C240.76 48.59 243.29 46.2 246.71 46.2C247.82 46.2 249.5 46.39 250.37 46.68V38.61C249.6 38.42 248.62 38.29 247.75 38.29C244.48 38.29 241.88 40.17 240.82 44.08H240.5V38.66H231.5ZM253.24 68.34H262.51V38.66H253.24ZM257.86 35.18C260.52 35.18 262.67 33.19 262.67 30.72C262.67 28.25 260.52 26.26 257.86 26.26C255.23 26.26 253.08 28.25 253.08 30.72C253.08 33.19 255.23 35.18 257.86 35.18ZM280.06 68.9C288.15 68.9 293.97 64.97 293.97 58.86C293.97 54.56 291.13 51.96 285.23 50.85L279.55 49.78C277 49.28 276.21 48.35 276.21 47.16C276.21 45.64 277.96 44.66 280.19 44.66C282.68 44.66 284.38 45.83 284.94 47.82L293.12 46.52C292.08 41.42 287.46 38.29 280.03 38.29C272.06 38.29 266.97 41.790 266.97 47.71C266.97 52.25 269.89 55.15 275.75 56.26L280.93 57.27C283.4 57.77 284.57 58.54 284.57 59.92C284.57 61.44 283 62.39 280.4 62.39C277.24 62.39 275.57 61.07 274.83 58.49L266.22 59.84C267.26 65.53 272.46 68.9 280.06 68.9Z"/></svg><span class="net mono">Network</span></a>
   <nav aria-label="Main"><ul>
     <li><a href="#projects">Projects</a></li>
     <li class="hide-s"><a href="#core">Shared core</a></li>
@@ -163,7 +168,7 @@ footer details p{margin:var(--s2) 0}
 
 <section class="hero" aria-labelledby="h1">
   <div class="hero-meta mono"><span>Self-hosted network &amp; homelab tools</span><span>Node.js 24 · zero npm dependencies · MIT</span></div>
-  <h1 id="h1" class="word">Nesaris<span>.</span></h1>
+  <h1 id="h1" class="word"><span class="sr">Nesaris Network</span><svg viewBox="18 22.26 279.97 61.74" aria-hidden="true"><path fill="currentColor" d="M22 80V30H39V37C43 31 50 27 58 27C71 27 79 36 79 50V80H62V53C62 47 58.5 43.5 53 43.5C46 43.5 39 48.5 39 55V80Z"/><path class="pkt" fill="var(--packet)" d="M47.5 64H54.5A3 3 0 0 1 57.5 67V74A3 3 0 0 1 54.5 77H47.5A3 3 0 0 1 44.5 74V67A3 3 0 0 1 47.5 64Z"/><path fill="currentColor" d="M114.77 51.4C114.77 47.95 116.81 45.91 119.84 45.91C122.86 45.91 124.67 47.9 124.67 51.24V68.34H133.93V49.44C133.93 42.72 129.87 38.29 123.66 38.29C118.85 38.29 115.93 40.94 114.37 45.06L114.21 38.66H105.5V68.34H114.77ZM152.78 68.9C159.98 68.9 164.83 65.63 166.32 60.48L158.06 59.13C157.32 61.12 155.44 62.18 152.94 62.18C149.44 62.18 147.07 60.06 146.92 55.76H166.75V53.42C166.75 43.62 160.77 38.29 152.44 38.29C143.52 38.29 137.81 44.45 137.81 53.61C137.81 63.11 143.46 68.9 152.78 68.9ZM146.97 50.37C147.31 47.1 149.25 45 152.52 45C155.76 45 157.59 47 157.96 50.37ZM183.02 68.9C191.12 68.9 196.93 64.97 196.93 58.86C196.93 54.56 194.09 51.96 188.2 50.85L182.52 49.78C179.97 49.28 179.17 48.35 179.17 47.16C179.17 45.64 180.92 44.66 183.15 44.66C185.65 44.66 187.35 45.83 187.91 47.82L196.08 46.52C195.05 41.42 190.43 38.29 182.99 38.29C175.03 38.29 169.93 41.79 169.93 47.71C169.93 52.25 172.85 55.15 178.72 56.26L183.9 57.27C186.37 57.77 187.53 58.54 187.53 59.92C187.53 61.44 185.97 62.39 183.37 62.39C180.21 62.39 178.53 61.07 177.79 58.49L169.19 59.84C170.22 65.53 175.43 68.9 183.02 68.9ZM208.91 68.87C213.02 68.87 215.89 67.23 217.51 64.17H217.75V68.34H226.45V48.19C226.45 41.82 220.64 38.29 213.26 38.29C205.83 38.29 201.15 41.77 199.99 46.84L208.37 47.93C208.88 46.07 210.6 44.87 213.18 44.87C215.7 44.87 217.21 46.04 217.21 48.08V48.19C217.21 50.02 215.2 50.39 210.18 50.82C204.18 51.32 199.14 53.53 199.14 60.11C199.14 65.98 203.2 68.87 208.91 68.87ZM211.72 62.74C209.49 62.74 207.9 61.68 207.9 59.69C207.9 57.72 209.44 56.55 212.17 56.15C213.9 55.89 216.23 55.49 217.29 54.93V57.770C217.29 60.69 214.83 62.74 211.72 62.74ZM231.5 68.34H240.76V52.15C240.76 48.59 243.29 46.2 246.71 46.2C247.82 46.2 249.5 46.39 250.37 46.68V38.61C249.6 38.42 248.62 38.29 247.75 38.29C244.48 38.29 241.88 40.17 240.82 44.08H240.5V38.66H231.5ZM253.24 68.34H262.51V38.66H253.24ZM257.86 35.18C260.52 35.18 262.67 33.19 262.67 30.72C262.67 28.25 260.52 26.26 257.86 26.26C255.23 26.26 253.08 28.25 253.08 30.72C253.08 33.19 255.23 35.18 257.86 35.18ZM280.06 68.9C288.15 68.9 293.97 64.97 293.97 58.86C293.97 54.56 291.13 51.96 285.23 50.85L279.55 49.78C277 49.28 276.21 48.35 276.21 47.16C276.21 45.64 277.96 44.66 280.19 44.66C282.68 44.66 284.38 45.83 284.94 47.82L293.12 46.52C292.08 41.42 287.46 38.29 280.03 38.29C272.06 38.29 266.97 41.790 266.97 47.71C266.97 52.25 269.89 55.15 275.75 56.26L280.93 57.27C283.4 57.77 284.57 58.54 284.57 59.92C284.57 61.44 283 62.39 280.4 62.39C277.24 62.39 275.57 61.07 274.83 58.49L266.22 59.84C267.26 65.53 272.46 68.9 280.06 68.9Z"/></svg></h1>
   <div class="hero-row">
     <p class="lede">Map, monitor and run your own network — on hardware you own.</p>
     <div class="hero-side">
@@ -252,6 +257,7 @@ footer details p{margin:var(--s2) 0}
   <div class="about">
     <span class="mono" style="color:var(--ink-3);padding-top:6px">03 — About</span>
     <div>
+      <img src="/assets/nesaris-icon-500.png" alt="Nesaris logo" width="56" height="56" style="border-radius:12px;margin-bottom:var(--s3)">
       <h2 id="about-h" style="font-size:30px;letter-spacing:-.02em;margin:0 0 var(--s3)">Built by CodeX64.</h2>
       <p><strong>Nesaris Network</strong> is maintained by <strong>CodeX64</strong> (GitHub <a href="https://github.com/CodexX64">@CodexX64</a>, also written Codex64), who builds these tools for his own homelab first, then publishes them under the MIT license.</p>
       <p>Bug reports and pull requests are welcome on each repository. If a project is useful to you, starring it on GitHub is the best way to help others find it.</p>
@@ -267,7 +273,7 @@ footer details p{margin:var(--s2) 0}
 <footer>
   <div class="wrap">
     <div class="row">
-      <span>© 2026 Nesaris Network · by <a href="https://codexx64.github.io/">CodeX64</a></span>
+      <span style="display:flex;gap:10px;align-items:center"><svg viewBox="18 21 65 65" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M22 80V30H39V37C43 31 50 27 58 27C71 27 79 36 79 50V80H62V53C62 47 58.5 43.5 53 43.5C46 43.5 39 48.5 39 55V80Z"/><path fill="var(--packet)" d="M47.5 64H54.5A3 3 0 0 1 57.5 67V74A3 3 0 0 1 54.5 77H47.5A3 3 0 0 1 44.5 74V67A3 3 0 0 1 47.5 64Z"/></svg>© 2026 Nesaris Network · by <a href="https://codexx64.github.io/">CodeX64</a></span>
       <span><a href="https://github.com/Nesaris">GitHub</a> · <a href="https://altklin.github.io/">AltKlin</a> · <a href="mailto:developer@nesaris.cloud">developer@nesaris.cloud</a></span>
     </div>
     <details>

@@ -1,14 +1,304 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nesaris Network — Self-hosted network tools — mapping, monitoring and securing your own LAN.</title><meta name="description" content="Nesaris Network: Self-hosted network tools — mapping, monitoring and securing your own LAN."><link rel="canonical" href="https://nesaris.github.io/">
-<meta property="og:title" content="Nesaris Network"><meta property="og:description" content="Self-hosted network tools — mapping, monitoring and securing your own LAN."><meta property="og:url" content="https://nesaris.github.io/">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Nesaris Network","url":"https://nesaris.github.io/","description":"Self-hosted network tools — mapping, monitoring and securing your own LAN.","sameAs":["https://github.com/Nesaris"]}</script>
-<style>body{margin:0;background:#0b0d10;color:#e6e8eb;font:16px/1.6 system-ui,sans-serif}main{max-width:760px;margin:0 auto;padding:72px 24px}h1{font-size:clamp(44px,9vw,84px);line-height:1;margin:0 0 20px;letter-spacing:-.03em}p{color:#9aa3ad;margin:0 0 8px}a{color:#fff}ul{list-style:none;padding:0;margin:48px 0}li{padding:18px 0;border-top:1px solid #1f242b}li a{font-weight:600;display:block;text-decoration:none}li span{color:#9aa3ad;font-size:14px}footer{margin-top:56px;font-size:14px;color:#6b7480}footer a{color:#9aa3ad}</style></head>
-<body><main><h1>Nesaris Network</h1><p>Self-hosted network tools — mapping, monitoring and securing your own LAN.</p><p><a href="https://github.com/Nesaris">github.com/Nesaris</a></p><ul><li><a href="https://github.com/Nesaris/Vigie">Vigie</a><span>Defensive network audit and monitoring tool for your own LAN.</span></li>
-<li><a href="https://github.com/Nesaris/Synapse">Synapse</a><span>Self-hosted memory service for AI agents (L0–L3 cascade, MCP server).</span></li>
-<li><a href="https://github.com/Nesaris/Relay">Relay</a><span>Zero-dependency Node.js edge and control layer for the Nesaris Hub.</span></li>
-<li><a href="https://github.com/Nesaris/ProxLab">ProxLab</a><span>Web interface to manage Proxmox VE: VMs, containers and consoles.</span></li>
-<li><a href="https://github.com/Nesaris/NexArc">NexArc</a><span>Self-hosted IT fleet monitoring: agents report inventory, security posture and metrics; remote tasks, consoles, Wake-on-LAN.</span></li>
-<li><a href="https://github.com/Nesaris/Nesmail">Nesmail</a><span>Self-hosted alert inbox that turns alert emails into tracked tickets.</span></li>
-<li><a href="https://github.com/Nesaris/MapMyLAN">MapMyLAN</a><span>Self-hosted network monitoring: device discovery, topology mapping, vulnerability detection and threat blocking.</span></li>
-<li><a href="https://github.com/Nesaris/Hub">Hub</a><span>Nesaris Hub — central dashboard that installs and manages your self-hosted services as extensions.</span></li>
-<li><a href="https://github.com/Nesaris/Dialekt">Dialekt</a><span>Local AI (Ollama) vs Claude duels, scored by a deterministic judge.</span></li></ul><footer>By <a href="https://codexx64.github.io">CodeX64</a> · Sister org: <a href="https://altklin.github.io">AltKlin</a></footer></main></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nesaris Network — self-hosted network & homelab tools by CodeX64</title>
+<meta name="description" content="Nesaris Network builds open-source, self-hosted tools for your LAN and homelab: Hub, MapMyLAN, NexArc, ProxLab, Vigie, Relay, Nesmail, Synapse and Dialekt. Node.js 24, zero npm dependencies, MIT. Made by CodeX64 (CodexX64), also behind AltKlin.">
+<meta name="author" content="CodeX64 (CodexX64)">
+<meta name="keywords" content="Nesaris, Nesaris Network, CodeX64, CodexX64, Codex64, AltKlin, self-hosted, homelab, network monitoring, MapMyLAN, Proxmox dashboard, RMM, reverse proxy, open source">
+<link rel="canonical" href="https://nesaris.github.io/">
+<meta name="theme-color" content="#0e0f11">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nesaris Network">
+<meta property="og:title" content="Nesaris Network — self-hosted network & homelab tools">
+<meta property="og:description" content="Open-source tools to map, monitor and run your own network: Hub, MapMyLAN, NexArc, ProxLab, Vigie and more. Zero npm dependencies. By CodeX64.">
+<meta property="og:url" content="https://nesaris.github.io/">
+<meta property="og:image" content="https://raw.githubusercontent.com/Nesaris/Hub/main/medias/capture-1.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231B2AFF'/%3E%3Cpath d='M9 23V9l14 14V9' fill='none' stroke='%23fff' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=schibsted-grotesk:400,500,700,800|ibm-plex-mono:400,500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"https://nesaris.github.io/#org","name":"Nesaris Network","alternateName":["Nesaris"],"url":"https://nesaris.github.io/","email":"developer@nesaris.cloud","description":"Open-source, self-hosted network and homelab tools with zero npm dependencies.","sameAs":["https://github.com/Nesaris"],"founder":{"@id":"https://codexx64.github.io/#person"}},
+{"@type":"Person","@id":"https://codexx64.github.io/#person","name":"CodeX64","alternateName":["CodexX64","Codex64"],"url":"https://codexx64.github.io/","sameAs":["https://github.com/CodexX64","https://github.com/AltKlin","https://altklin.github.io/"]},
+{"@type":"ItemList","name":"Nesaris Network projects","itemListElement":[
+{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"Nesaris Hub","url":"https://github.com/Nesaris/Hub","applicationCategory":"DeveloperApplication","operatingSystem":"Linux (Docker)","license":"https://opensource.org/licenses/MIT","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"author":{"@id":"https://codexx64.github.io/#person"}}},
+{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"MapMyLAN","url":"https://github.com/Nesaris/MapMyLAN","applicationCategory":"NetworkingApplication","operatingSystem":"Linux (Docker)","license":"https://opensource.org/licenses/MIT","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"author":{"@id":"https://codexx64.github.io/#person"}}},
+{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"NexArc","url":"https://github.com/Nesaris/NexArc","applicationCategory":"BusinessApplication","operatingSystem":"Linux (Docker)","license":"https://opensource.org/licenses/MIT","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"author":{"@id":"https://codexx64.github.io/#person"}}},
+{"@type":"ListItem","position":4,"item":{"@type":"SoftwareApplication","name":"ProxLab","url":"https://github.com/Nesaris/ProxLab","applicationCategory":"DeveloperApplication","operatingSystem":"Linux (Docker)","license":"https://www.gnu.org/licenses/agpl-3.0.html","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"author":{"@id":"https://codexx64.github.io/#person"}}},
+{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"Vigie","url":"https://github.com/Nesaris/Vigie","applicationCategory":"SecurityApplication","operatingSystem":"Linux (Docker)","license":"https://opensource.org/licenses/MIT","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"author":{"@id":"https://codexx64.github.io/#person"}}},
+{"@type":"ListItem","position":6,"item":{"@type":"SoftwareApplication","name":"Relay","url":"https://github.com/Nesaris/Relay","applicationCategory":"NetworkingApplication","operatingSystem":"Linux (Docker)","license":"https://opensource.org/licenses/MIT","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"author":{"@id":"https://codexx64.github.io/#person"}}},
+{"@type":"ListItem","position":7,"item":{"@type":"SoftwareApplication","name":"Nesmail","url":"https://github.com/Nesaris/Nesmail","applicationCategory":"CommunicationApplication","operatingSystem":"Linux (Docker)","license":"https://opensource.org/licenses/MIT","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"author":{"@id":"https://codexx64.github.io/#person"}}},
+{"@type":"ListItem","position":8,"item":{"@type":"SoftwareApplication","name":"Synapse","url":"https://github.com/Nesaris/Synapse","applicationCategory":"DeveloperApplication","operatingSystem":"Linux (Docker)","license":"https://opensource.org/licenses/MIT","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"author":{"@id":"https://codexx64.github.io/#person"}}},
+{"@type":"ListItem","position":9,"item":{"@type":"SoftwareApplication","name":"Dialekt","url":"https://github.com/Nesaris/Dialekt","applicationCategory":"DeveloperApplication","operatingSystem":"Linux (Docker)","license":"https://opensource.org/licenses/MIT","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"author":{"@id":"https://codexx64.github.io/#person"}}}
+]}]}
+</script>
+<style>
+:root{
+  --bg:#0e0f11;--bg-2:#15171a;--line:#24272c;--ink:#ecebe6;--ink-2:#a3a6ad;--ink-3:#71757d;
+  --accent:#1B2AFF;--accent-ink:#aab1ff;
+  --sans:"Schibsted Grotesk",ui-sans-serif,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;
+  --s1:4px;--s2:8px;--s3:16px;--s4:24px;--s5:32px;--s6:48px;--s7:64px;--s8:96px;--s9:144px;
+  --r:6px;--wrap:1240px;
+}
+*{box-sizing:border-box}
+img{max-width:100%}
+.feat>*,.hero-row>*,.about>*,.sec-head>*,.index li>*{min-width:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent-ink);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--s4)}
+.mono{font-family:var(--mono);font-size:13px;letter-spacing:.01em}
+.skip{position:absolute;left:-999px}.skip:focus{left:var(--s3);top:var(--s3);background:var(--ink);color:var(--bg);padding:var(--s2) var(--s3);z-index:9}
+
+/* top */
+header.top{display:flex;justify-content:space-between;align-items:center;padding:var(--s4) 0;border-bottom:1px solid var(--line)}
+.brand{display:flex;gap:10px;align-items:center;text-decoration:none;font-weight:700}
+.brand svg{width:22px;height:22px}
+nav ul{display:flex;gap:var(--s4);list-style:none;margin:0;padding:0}
+nav a{text-decoration:none;color:var(--ink-2)}nav a:hover{color:var(--ink)}
+
+/* hero */
+.hero{padding:var(--s8) 0 var(--s6);border-bottom:1px solid var(--line)}
+.hero-meta{display:flex;justify-content:space-between;gap:var(--s4);flex-wrap:wrap;color:var(--ink-3)}
+.word{font-weight:800;font-size:clamp(88px,21vw,300px);line-height:.78;letter-spacing:-.06em;margin:var(--s7) 0 var(--s6);margin-left:-.04em}
+.word span{color:var(--accent)}
+.hero-row{display:grid;grid-template-columns:1.3fr 1fr;gap:var(--s6);align-items:end}
+.lede{font-size:clamp(22px,2.4vw,30px);line-height:1.25;font-weight:500;max-width:22ch;margin:0;letter-spacing:-.01em}
+.hero-side p{color:var(--ink-2);max-width:46ch;margin:0 0 var(--s4)}
+.cmd{display:flex;align-items:center;gap:var(--s3);background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r);padding:var(--s3)}
+.cmd code{font:13px/1.5 var(--mono);color:var(--ink);overflow-x:auto;white-space:nowrap;flex:1;min-width:0}
+.cmd code b{color:var(--accent-ink);font-weight:400}
+button.copy{font:500 12px var(--mono);background:transparent;color:var(--ink-2);border:1px solid var(--line);border-radius:4px;padding:6px 10px;cursor:pointer}
+button.copy:hover{color:var(--ink);border-color:var(--ink-3)}
+
+/* section heads */
+.sec{padding:var(--s8) 0}
+.sec-head{display:grid;grid-template-columns:200px 1fr;gap:var(--s4);margin-bottom:var(--s6)}
+.sec-head .mono{color:var(--ink-3);padding-top:10px}
+.sec-head h2{font-size:clamp(30px,3.6vw,46px);line-height:1.05;letter-spacing:-.03em;margin:0;font-weight:700;max-width:20ch}
+
+/* featured */
+.feat{display:grid;grid-template-columns:5fr 7fr;gap:var(--s6);padding:var(--s6) 0;border-top:1px solid var(--line);align-items:start}
+.feat:nth-of-type(even){grid-template-columns:7fr 5fr}
+.feat:nth-of-type(even) .shot{order:-1}
+.idx{color:var(--ink-3)}
+.feat h3{font-size:clamp(34px,4.4vw,60px);line-height:1;letter-spacing:-.04em;margin:var(--s3) 0 var(--s3);font-weight:800}
+.feat .pitch{font-size:20px;line-height:1.35;margin:0 0 var(--s4);max-width:30ch;font-weight:500}
+.feat ul{margin:0 0 var(--s5);padding:0;list-style:none;color:var(--ink-2);max-width:52ch}
+.feat li{padding:var(--s2) 0;border-bottom:1px solid var(--line)}
+.feat li:first-child{border-top:1px solid var(--line)}
+.links{display:flex;flex-wrap:wrap;gap:var(--s3);align-items:center}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:500;padding:10px 16px;border-radius:var(--r);border:1px solid var(--line);color:var(--ink)}
+.btn:hover{border-color:var(--ink-3)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary:hover{background:#3341ff}
+.stars{color:var(--ink-3)}
+.shot{margin:0;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:#f4f4f1}
+.shot img{display:block;width:100%;height:auto}
+.tags{display:flex;gap:var(--s2);flex-wrap:wrap;margin-bottom:var(--s3)}
+.tags span{font:12px var(--mono);color:var(--ink-2);border:1px solid var(--line);border-radius:3px;padding:2px 7px}
+
+/* index */
+.index{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.index li{display:grid;grid-template-columns:56px 180px 1fr 120px 150px;gap:var(--s4);align-items:center;padding:var(--s4) 0;border-bottom:1px solid var(--line)}
+.index .n{color:var(--ink-3)}
+.index h3{margin:0;font-size:24px;letter-spacing:-.02em;font-weight:700}
+.index p{margin:0;color:var(--ink-2)}
+.index .thumb{width:150px;aspect-ratio:16/10;object-fit:cover;object-position:top left;border-radius:4px;border:1px solid var(--line);background:#f4f4f1}
+.index a.row-link{text-decoration:none}
+.index a.row-link:hover h3{color:var(--accent-ink)}
+
+/* core */
+.core{display:grid;grid-template-columns:repeat(2,1fr);gap:0 var(--s6);margin:0}
+.core div{padding:var(--s4) 0;border-top:1px solid var(--line)}
+.core dt{font-weight:700;margin-bottom:var(--s1)}
+.core dd{margin:0;color:var(--ink-2);max-width:48ch}
+
+/* about */
+.about{display:grid;grid-template-columns:200px 1fr 1fr;gap:var(--s4)}
+.about p{margin:0 0 var(--s3);color:var(--ink-2);max-width:56ch}
+.about strong{color:var(--ink);font-weight:500}
+.about .card{border:1px solid var(--line);border-radius:var(--r);padding:var(--s4);text-decoration:none;display:block}
+.about .card:hover{border-color:var(--ink-3)}
+.about .card b{display:block;font-size:22px;letter-spacing:-.02em;margin:var(--s2) 0}
+
+footer{border-top:1px solid var(--line);padding:var(--s6) 0 var(--s7);color:var(--ink-3);font-size:14px}
+footer .row{display:flex;justify-content:space-between;gap:var(--s4);flex-wrap:wrap}
+footer a{color:var(--ink-2)}
+footer details{margin-top:var(--s4);max-width:70ch}
+footer summary{cursor:pointer;color:var(--ink-2)}
+footer details p{margin:var(--s2) 0}
+
+@media (max-width:900px){
+  nav ul{gap:var(--s3)}nav li.hide-s{display:none}
+  .hero-row,.feat,.feat:nth-of-type(even),.about,.sec-head{grid-template-columns:1fr}
+  .feat:nth-of-type(even) .shot{order:0}
+  .core{grid-template-columns:1fr}
+  .index li{grid-template-columns:40px 1fr;gap:var(--s2) var(--s3)}
+  .index li>*:nth-child(n+3){grid-column:2}
+  .index .thumb{width:100%;max-width:320px}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#projects">Skip to projects</a>
+<div class="wrap">
+<header class="top">
+  <a class="brand" href="/" aria-label="Nesaris Network home">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#1B2AFF"/><path d="M9 23V9l14 14V9" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Nesaris Network
+  </a>
+  <nav aria-label="Main"><ul>
+    <li><a href="#projects">Projects</a></li>
+    <li class="hide-s"><a href="#core">Shared core</a></li>
+    <li class="hide-s"><a href="#about">About</a></li>
+    <li><a href="https://github.com/Nesaris">GitHub</a></li>
+  </ul></nav>
+</header>
+
+<section class="hero" aria-labelledby="h1">
+  <div class="hero-meta mono"><span>Self-hosted network &amp; homelab tools</span><span>Node.js 24 · zero npm dependencies · MIT</span></div>
+  <h1 id="h1" class="word">Nesaris<span>.</span></h1>
+  <div class="hero-row">
+    <p class="lede">Map, monitor and run your own network — on hardware you own.</p>
+    <div class="hero-side">
+      <p>Nesaris Network is a family of open-source services for your LAN and homelab: network mapping, fleet management, a Proxmox dashboard, security audit, reverse proxy, alert inbox and AI memory. They share one hardened core and install from the Hub in one click.</p>
+      <div class="cmd"><code><b>$</b> git clone https://github.com/Nesaris/Hub hub &amp;&amp; cd hub &amp;&amp; sudo ./install.sh</code><button class="copy" data-copy="git clone https://github.com/Nesaris/Hub hub && cd hub && sudo ./install.sh">Copy</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="projects" aria-labelledby="projects-h">
+  <div class="sec-head"><span class="mono">01 — Projects</span><h2 id="projects-h">Nine services, one way of building them.</h2></div>
+
+  <article class="feat">
+    <div>
+      <span class="idx mono">01 / Hub</span>
+      <h3>Hub</h3>
+      <p class="pitch">The control point for everything you self-host.</p>
+      <div class="tags"><span>Docker</span><span>workflows</span><span>one-click installs</span></div>
+      <ul>
+        <li>Installs services straight from GitHub, as extensions.</li>
+        <li>Real workflows between services: triggers, actions and probes.</li>
+        <li>Measured overview: traffic, CPU, memory and uptime over 24 h, 7 d or 30 d.</li>
+        <li>Docker driven through a socket proxy, never the raw socket.</li>
+      </ul>
+      <div class="links"><a class="btn primary" href="https://github.com/Nesaris/Hub">Source on GitHub</a><a class="btn" href="https://github.com/Nesaris/Hub#quick-start">Install guide</a><span class="stars mono" data-repo="Nesaris/Hub"></span></div>
+    </div>
+    <figure class="shot"><img src="https://raw.githubusercontent.com/Nesaris/Hub/main/medias/capture-1.png" alt="Nesaris Hub overview: services online, network traffic, CPU and memory" width="1280" height="900" loading="lazy"></figure>
+  </article>
+
+  <article class="feat">
+    <div>
+      <span class="idx mono">02 / MapMyLAN</span>
+      <h3>MapMyLAN</h3>
+      <p class="pitch">See every device on your LAN — and block the bad ones on your own router.</p>
+      <div class="tags"><span>network map</span><span>CVE</span><span>UniFi · OpenWrt · MikroTik · pfSense</span></div>
+      <ul>
+        <li>Discovery from ARP, ping and your router, with a confidence score per device.</li>
+        <li>Measured topology: switch port and access point of each client.</li>
+        <li>Block or isolate a device by hand or by rule, enforced on the gateway.</li>
+        <li>Alerts by Telegram, email or ticket.</li>
+      </ul>
+      <div class="links"><a class="btn primary" href="https://github.com/Nesaris/MapMyLAN">Source on GitHub</a><a class="btn" href="https://github.com/Nesaris/MapMyLAN#quick-start">Install guide</a><span class="stars mono" data-repo="Nesaris/MapMyLAN"></span></div>
+    </div>
+    <figure class="shot"><img src="https://raw.githubusercontent.com/Nesaris/MapMyLAN/main/medias/capture-1.png" alt="MapMyLAN network map of a local network" width="1280" height="900" loading="lazy"></figure>
+  </article>
+
+  <article class="feat">
+    <div>
+      <span class="idx mono">03 / NexArc</span>
+      <h3>NexArc</h3>
+      <p class="pitch">Your whole fleet at a glance, without a paid RMM.</p>
+      <div class="tags"><span>agents</span><span>patch status</span><span>VNC · iDRAC · iLO</span></div>
+      <ul>
+        <li>Inventory, metrics and security posture from a lightweight agent.</li>
+        <li>Remote tasks and scheduled automations on any group of machines.</li>
+        <li>Built-in VNC and out-of-band consoles, Redfish power, Wake-on-LAN.</li>
+      </ul>
+      <div class="links"><a class="btn primary" href="https://github.com/Nesaris/NexArc">Source on GitHub</a><a class="btn" href="https://github.com/Nesaris/NexArc#quick-start">Install guide</a><span class="stars mono" data-repo="Nesaris/NexArc"></span></div>
+    </div>
+    <figure class="shot"><img src="https://raw.githubusercontent.com/Nesaris/NexArc/main/medias/capture-1.png" alt="NexArc machine details: metrics, posture and inventory" width="1280" height="900" loading="lazy"></figure>
+  </article>
+
+  <ol class="index" start="4" aria-label="More Nesaris projects">
+    <li><span class="n mono">04</span><a class="row-link" href="https://github.com/Nesaris/ProxLab"><h3>ProxLab</h3></a><p>A clear web dashboard for Proxmox VE: VMs, containers, consoles, snapshots, backups and alerts.</p><span class="stars mono" data-repo="Nesaris/ProxLab"></span><img class="thumb" src="https://raw.githubusercontent.com/Nesaris/ProxLab/main/medias/capture-1.png" alt="ProxLab cluster overview" loading="lazy"></li>
+    <li><span class="n mono">05</span><a class="row-link" href="https://github.com/Nesaris/Vigie"><h3>Vigie</h3></a><p>Network security audit with a score per domain, an attack map and automatic blocking at the gateway.</p><span class="stars mono" data-repo="Nesaris/Vigie"></span><img class="thumb" src="https://raw.githubusercontent.com/Nesaris/Vigie/main/medias/capture-1.png" alt="Vigie security posture" loading="lazy"></li>
+    <li><span class="n mono">06</span><a class="row-link" href="https://github.com/Nesaris/Relay"><h3>Relay</h3></a><p>Reverse proxy with a UI: one name per service, HTTPS or Cloudflare Tunnel, health checks and Telegram alerts.</p><span class="stars mono" data-repo="Nesaris/Relay"></span><img class="thumb" src="https://raw.githubusercontent.com/Nesaris/Relay/main/medias/capture-1.png" alt="Relay routes and their health" loading="lazy"></li>
+    <li><span class="n mono">07</span><a class="row-link" href="https://github.com/Nesaris/Nesmail"><h3>Nesmail</h3></a><p>Alert inbox: reads your IMAP mailboxes and turns every alert email into a deduplicated ticket.</p><span class="stars mono" data-repo="Nesaris/Nesmail"></span><img class="thumb" src="https://raw.githubusercontent.com/Nesaris/Nesmail/main/medias/capture-1.png" alt="Nesmail incoming alerts" loading="lazy"></li>
+    <li><span class="n mono">08</span><a class="row-link" href="https://github.com/Nesaris/Synapse"><h3>Synapse</h3></a><p>Searchable memory for AI agents and humans, with an MCP server and a 3D view of what it knows.</p><span class="stars mono" data-repo="Nesaris/Synapse"></span><img class="thumb" src="https://raw.githubusercontent.com/Nesaris/Synapse/main/medias/capture-1.png" alt="Synapse memory in 3D" loading="lazy"></li>
+    <li><span class="n mono">09</span><a class="row-link" href="https://github.com/Nesaris/Dialekt"><h3>Dialekt</h3></a><p>Local AI (Ollama) against Claude, ChatGPT, Gemini and others, scored by a deterministic judge.</p><span class="stars mono" data-repo="Nesaris/Dialekt"></span><img class="thumb" src="https://raw.githubusercontent.com/Nesaris/Dialekt/main/medias/capture-1.png" alt="Dialekt duel and verdict" loading="lazy"></li>
+  </ol>
+</section>
+
+<section class="sec" id="core" aria-labelledby="core-h" style="padding-top:0">
+  <div class="sec-head"><span class="mono">02 — Shared core</span><h2 id="core-h">Every service ships the same foundations.</h2></div>
+  <dl class="core">
+    <div><dt>Zero npm dependencies</dt><dd>Node.js 24 and its standard library only. Nothing to audit in a node_modules folder, nothing to break on the next update.</dd></div>
+    <div><dt>SQLite, built in</dt><dd>Data lives in <code class="mono">node:sqlite</code>. One volume to back up.</dd></div>
+    <div><dt>Accounts done properly</dt><dd>Argon2id passwords, passkeys, TOTP, recovery codes and a security log in every service.</dd></div>
+    <div><dt>Secrets sealed outside the data</dt><dd>A master key mounted as a Docker secret: a copy of the data volume alone opens nothing. Key rotation is built in.</dd></div>
+    <div><dt>No build step</dt><dd>Static interfaces, light and dark, responsive from 360 to 1920 px.</dd></div>
+    <div><dt>Wired together by the Hub</dt><dd>Install any service from the Hub catalog and it gets its accounts, tokens and HTTPS route automatically.</dd></div>
+  </dl>
+</section>
+
+<section class="sec" id="about" aria-labelledby="about-h" style="border-top:1px solid var(--line)">
+  <div class="about">
+    <span class="mono" style="color:var(--ink-3);padding-top:6px">03 — About</span>
+    <div>
+      <h2 id="about-h" style="font-size:30px;letter-spacing:-.02em;margin:0 0 var(--s3)">Built by CodeX64.</h2>
+      <p><strong>Nesaris Network</strong> is maintained by <strong>CodeX64</strong> (GitHub <a href="https://github.com/CodexX64">@CodexX64</a>, also written Codex64), who builds these tools for his own homelab first, then publishes them under the MIT license.</p>
+      <p>Bug reports and pull requests are welcome on each repository. If a project is useful to you, starring it on GitHub is the best way to help others find it.</p>
+    </div>
+    <div style="display:grid;gap:var(--s3);align-content:start">
+      <a class="card" href="https://altklin.github.io/"><span class="mono" style="color:var(--ink-3)">Sister organization</span><b>AltKlin</b><span style="color:var(--ink-2)">Free, zero-dependency alternatives to paid software, rebuilt from scratch.</span></a>
+      <a class="card" href="https://codexx64.github.io/"><span class="mono" style="color:var(--ink-3)">Author</span><b>CodeX64</b><span style="color:var(--ink-2)">All projects by CodexX64 on GitHub.</span></a>
+    </div>
+  </div>
+</section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <span>© 2026 Nesaris Network · by <a href="https://codexx64.github.io/">CodeX64</a></span>
+      <span><a href="https://github.com/Nesaris">GitHub</a> · <a href="https://altklin.github.io/">AltKlin</a> · <a href="mailto:developer@nesaris.cloud">developer@nesaris.cloud</a></span>
+    </div>
+    <details>
+      <summary>Legal notice &amp; privacy</summary>
+      <p><b>Publisher:</b> CodeX64, private individual, non-commercial open-source project. Contact: <a href="mailto:developer@nesaris.cloud">developer@nesaris.cloud</a>.</p>
+      <p><b>Host:</b> GitHub Pages — GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA.</p>
+      <p><b>Privacy:</b> no cookies, no analytics, no forms. Fonts are served by Bunny Fonts, images by GitHub, and star counts are read from the public GitHub API by your browser; these services receive your IP address as part of the request.</p>
+    </details>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('button.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var t=b.getAttribute('data-copy');
+    (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1600)},function(){b.textContent='Select & copy'});
+  });
+});
+(function(){
+  var KEY='nesaris-stars',now=Date.now(),cache={};
+  try{cache=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+  function show(el,n){if(typeof n==="number"&&n>0){el.textContent='★ '+n;el.setAttribute('aria-label',n+' stars on GitHub')}}
+  document.querySelectorAll('[data-repo]').forEach(function(el){
+    var r=el.getAttribute('data-repo'),c=cache[r];
+    if(c&&now-c.t<3600000){show(el,c.n);return}
+    fetch('https://api.github.com/repos/'+r).then(function(x){return x.ok?x.json():null}).then(function(d){
+      if(!d)return;show(el,d.stargazers_count);cache[r]={n:d.stargazers_count,t:now};
+      try{localStorage.setItem(KEY,JSON.stringify(cache))}catch(e){}
+    }).catch(function(){});
+  });
+})();
+</script>
+</body>
+</html>
